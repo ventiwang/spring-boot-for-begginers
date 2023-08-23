@@ -1,29 +1,16 @@
 package com.venti.sprintDemo.student;
 
-import java.time.LocalDate;
 import java.util.List;
 
-import org.springframework.stereotype.Service;
-
-@Service
-public class StudentService {
+public interface StudentService {
     
-    public List<Student> findAllStudent(){
-    return List.of(
-            new Student(
-                "Venti",
-                "Wang",
-                LocalDate.now(),
-                "contact@mail.com",
-                33
-            ),
-            new Student(
-                "Student 3",
-                "Wang",
-                LocalDate.now(),
-                "contact@mail.com",
-                28
-            )
-        );
-    }
+    Student save(Student s);
+
+    public List<Student> findAllStudent();
+
+    Student findByEmail(String email);
+
+    Student update(Student s);
+
+    void delete(String email);
 }
